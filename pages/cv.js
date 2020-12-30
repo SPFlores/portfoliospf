@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BaseLayout from '../components/layouts/baselayout'
+import BaseLayout from '../components/layouts/BaseLayout'
 
 class CV extends Component {
   render () {
