@@ -3,23 +3,23 @@ import React, { Component } from 'react'
 import Link from 'next/link'
 
 class Header extends Component {
-  render() {
+  render () {
     return (
-      <div className='header'>
+      <div>
         <Link href='/'>
-          <a className='header__link'>Home</a>
+          <a>Home</a>
         </Link>
         <Link href='/about'>
-          <a className='header__link'>About</a>
+          <a>About</a>
         </Link>
-        <Link href='/portfolio'>
-          <a className='header__link'>Portfolio</a>
+        <Link href='/portfolios'>
+          <a>Portfolios</a>
         </Link>
         <Link href='/blogs'>
-          <a className='header__link'>Blog</a>
+          <a>Blog</a>
         </Link>
         <Link href='/cv'>
-          <a className='header__link'>CV</a>
+          <a>CV</a>
         </Link>
       </div>
     )
