@@ -1,4 +1,4 @@
-import Header from './shared/Header'
+import Navigation from './shared/Navbar'
 import BaseLayout from './layouts/BaseLayout'
 
-export default { Header, BaseLayout }
+export { Navigation, BaseLayout }

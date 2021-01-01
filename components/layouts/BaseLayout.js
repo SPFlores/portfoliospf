@@ -1,16 +1,19 @@
 import React from 'react'
-import Header from '../shared/Header'
+import { Navigation } from '../../components'
+import BasePage from '../BasePage'
 
 const BaseLayout = props => {
   return (
-    <div className='layout-container'>
-      <Header />
+    <div className='layout-container' >
+      <Navigation />
       <main className={`cover ${props.className}`}>
         <div className='wrapper'>
-          {props.children}
+          <BasePage>
+            {props.children}
+          </BasePage>
         </div>
       </main>
-    </div>
+    </div >
   )
 }
 

@@ -42,8 +42,8 @@ const Main = _ => {
             <Col md='6' className='hero-welcome-wrapper'>
               <div className='hero-welcome-text'>
                 <h1>
-                  Welcome to the portfolio website of Samantha Flores.
-                  Get informed, collaborate and discover projects I was working on through the years!
+                  Welcome to the portfolio website of Samantha Flores!
+                  Get informed, collaborate and discover projects I have been involved in.
                 </h1>
               </div>
               <Typed

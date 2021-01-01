@@ -1,6 +1,7 @@
 @import './shared/fonts';
 
-@import './index.scss';
+@import './index';
+@import './components/navbar';
 
 html, body {
   font-family: 'Montserrat', 'Helvetica';
@@ -8,9 +9,18 @@ html, body {
   width: 100%;
 }
 
+.base-page {
+  padding-top: 125px;
+  color: white;
+}
+
 .self-typed {
-  font-size: 31px;
+  font-size: 30px;
   color: white;
   font-weight: bold;
   letter-spacing: 2px;
+}
+
+.absolute {
+  position: absolute;
 }
