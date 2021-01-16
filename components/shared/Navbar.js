@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem
 } from 'reactstrap'
@@ -37,6 +36,10 @@ const Navigation = (props) => {
     }
   ]
 
+  const loginLink = <span className='nav-link port-navbar-link clickable'>Login</span>
+
+  const logoutLink = <span className='nav-link port-navbar-link clickable'>Logout</span>
+
   return (
     <div>
       <Navbar className='port-navbar port-default absolute' color='transparent' dark expand='md'>
@@ -51,6 +54,14 @@ const Navigation = (props) => {
                 <Link href={`${item.path}`}><a className='nav-link port-navbar-link'>{item.name}</a></Link>
               </NavItem>
             )}
+          </Nav>
+          <Nav navbar>
+            <NavItem>
+              {loginLink}
+            </NavItem>
+            <NavItem>
+              {logoutLink}
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

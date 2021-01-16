@@ -1,34 +1,34 @@
 import React from 'react'
-import BaseLayout from '../../components/layouts/BaseLayout'
+import BaseLayout from '@/components/layouts/BaseLayout'
 import Link from 'next/link'
-import axios from 'axios'
+import { useGetPosts } from '@/actions'
 
-const Portfolio = ({ posts }) => {
+const Portfolio = _ => {
+  const { posts, error } = useGetPosts()
+
   return (
     <BaseLayout>
-      <div>
-        <h1>Portfolio</h1>
-        <ul>
-          {posts.map(post =>
-            <li key={post.id}>
-              <Link as={`/portfolio/${post.id}`} href='/portfolio/[id]'>
-                <a>
-                  <h5>{post.id}: {post.title}</h5>
-                </a>
-              </Link>
-            </li>
-          )}
-        </ul>
-      </div>
+      {error
+        ? <div className='alert alert-danger' style={{ width: '60%', margin: 'auto' }}>{error.message}</div>
+        : <div>
+          <h1>Portfolio</h1>
+          <ul>
+            {posts.map(post =>
+              <li key={post.id}>
+                <Link as={`/portfolio/${post.id}`} href='/portfolio/[id]'>
+                  <a>
+                    <h5>{post.id}: {post.title}</h5>
+                  </a>
+                </Link>
+              </li>
+            )}
+          </ul>
+          {error &&
+            <div className='alert alert-danger'>{error.message}</div>
+          }
+        </div>}
     </BaseLayout>
   )
-}
-
-Portfolio.getInitialProps = async _ => {
-  const posts = await axios.get('http://jsonplaceholder.typicode.com/posts')
-    .then(({ data }) => data.slice(0, 10))
-    .catch(e => console.log(e))
-  return { posts }
 }
 
 export default Portfolio

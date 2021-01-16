@@ -1,6 +1,6 @@
 import React from 'react'
-import { Navigation } from '../../components'
-import BasePage from '../BasePage'
+import { Navigation } from '@/components'
+import BasePage from '@/components/BasePage'
 
 const BaseLayout = props => {
   return (
