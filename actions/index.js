@@ -1,21 +1,25 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export const useGetPosts = _ => {
-  const [posts, setPosts] = useState([])
+export const useGetData = url => {
+  const [data, setData] = useState()
   const [error, setError] = useState()
+  const [loading, setLoading] = useState(true)
 
   useEffect(_ => {
-    async function getPosts() {
-      axios.get('api/v1/posts')
+    async function fetchData () {
+      axios.get(url)
         .then(({ data, status }) => {
           status !== 200 && setError(data.json())
-          status === 200 && setPosts(data)
+          status === 200 && setData(data)
+          setLoading(false)
         })
         .catch(e => setError(e))
     }
-    getPosts()
-  }, [])
+    url && fetchData()
+  }, [url])
 
-  return { posts, error }
+  return { data, error, loading }
 }
+
+export default useGetData

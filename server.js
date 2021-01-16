@@ -5,7 +5,7 @@ const next = require('next')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 // const handle = routes.getRequestHandler(app)
-const handle = app.getRequestHandler(ap)
+const handle = app.getRequestHandler(app)
 
 app.prepare().then(_ => {
   const server = express()
