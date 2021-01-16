@@ -1,25 +1,11 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import useSWR from 'swr'
 
-export const useGetData = url => {
-  const [data, setData] = useState()
-  const [error, setError] = useState()
-  const [loading, setLoading] = useState(true)
+const fetcher = (url) => fetch(url).then(async res => {
+  const result = await res.json()
+  return res.status === 200 ? result : Promise.reject(result)
+})
 
-  useEffect(_ => {
-    async function fetchData () {
-      axios.get(url)
-        .then(({ data, status }) => {
-          status !== 200 && setError(data.json())
-          status === 200 && setData(data)
-          setLoading(false)
-        })
-        .catch(e => setError(e))
-    }
-    url && fetchData()
-  }, [url])
-
-  return { data, error, loading }
+export const useGetPosts = _ => {
+  const { data, error, ...rest } = useSWR('/api/v1/posts', fetcher)
+  return { data, error, loading: !data && !error, ...rest }
 }
-
-export default useGetData
