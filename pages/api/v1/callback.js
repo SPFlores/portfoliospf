@@ -1,7 +1,7 @@
 import auth0 from '@/utils/auth0'
 
-export default async function login(req, res) {
-  await auth0.handleLogin(req, res)
+export default async function callback(req, res) {
+  await auth0.handleCallback(req, res, {redirectTo: '/'})
     .then()
     .catch(e => {
       console.log(e)

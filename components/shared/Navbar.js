@@ -36,9 +36,9 @@ const Navigation = (props) => {
     }
   ]
 
-  const loginLink = <Link href='/api/v1/login'><span className='nav-link port-navbar-link clickable'>Login</span></Link>
+  const loginLink = <a href='/api/v1/login' className='nav-link port-navbar-link clickable'>Login</a>
 
-  const logoutLink = <Link href='/api/v1/logout'><span className='nav-link port-navbar-link clickable'>Logout</span></Link>
+  const logoutLink = <a href='/api/v1/logout' className='nav-link port-navbar-link clickable'>Logout</a>
 
   return (
     <div>
