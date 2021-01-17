@@ -3,13 +3,17 @@ import BaseLayout from '@/components/layouts/BaseLayout'
 import axios from 'axios'
 import { useGetPostById } from '@/actions'
 import { useRouter } from 'next/router'
+import { useGetUser } from '@/actions/user'
 
 const Portfolio = _ => {
   const router = useRouter()
   const { data, error, loading } = useGetPostById(router.query.id)
+  const { data: userData, loading: userLoading } = useGetUser()
 
   return (
-    <BaseLayout>
+    <BaseLayout
+      user={userData}
+      loading={userLoading}>
       {loading
         ? <p>Loading...</p>
         : error

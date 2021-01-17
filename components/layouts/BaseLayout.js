@@ -2,14 +2,14 @@ import React from 'react'
 import { Navigation } from '@/components'
 import BasePage from '@/components/BasePage'
 
-const BaseLayout = props => {
+const BaseLayout = ({ user, loading, className, children }) => {
   return (
     <div className='layout-container' >
-      <Navigation />
-      <main className={`cover ${props.className}`}>
+      <Navigation user={user} loading={loading} />
+      <main className={`cover ${className}`}>
         <div className='wrapper'>
           <BasePage>
-            {props.children}
+            {children}
           </BasePage>
         </div>
       </main>

@@ -8,7 +8,7 @@ import {
 } from 'reactstrap'
 import Link from 'next/link'
 
-const Navigation = (props) => {
+const Navigation = ({ user, loading }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
@@ -33,6 +33,10 @@ const Navigation = (props) => {
     {
       path: '/cv',
       name: 'CV'
+    },
+    {
+      path: '/secret',
+      name: 'Secret'
     }
   ]
 
@@ -56,12 +60,16 @@ const Navigation = (props) => {
             )}
           </Nav>
           <Nav navbar>
-            <NavItem>
-              {loginLink}
-            </NavItem>
-            <NavItem>
-              {logoutLink}
-            </NavItem>
+            {!loading &&
+              <>
+                {user && <NavItem>
+                  {logoutLink}
+                </NavItem>}
+                {!user && <NavItem>
+                  {loginLink}
+                </NavItem>}
+              </>
+            }
           </Nav>
         </Collapse>
       </Navbar>

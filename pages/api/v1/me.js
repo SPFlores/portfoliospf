@@ -1,7 +1,7 @@
 import auth0 from '@/utils/auth0'
 
-export default async function logout(req, res) {
-  await auth0.handleLogout(req, res)
+export default async function me(req, res) {
+  await auth0.handleProfile(req, res)
     .then()
     .catch(e => {
       console.log(e)

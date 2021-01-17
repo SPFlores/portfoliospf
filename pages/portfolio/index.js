@@ -2,12 +2,16 @@ import React from 'react'
 import BaseLayout from '@/components/layouts/BaseLayout'
 import Link from 'next/link'
 import { useGetPosts } from '@/actions'
+import { useGetUser } from '@/actions/user'
 
 const Portfolio = _ => {
   const { data, error, loading } = useGetPosts()
+  const { data: userData, loading: userLoading } = useGetUser()
 
   return (
-    <BaseLayout>
+    <BaseLayout
+      user={userData}
+      loading={userLoading}>
       {loading
         ? <p>Loading data...</p>
         : error
