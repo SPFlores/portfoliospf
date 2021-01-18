@@ -37,6 +37,10 @@ const Navigation = ({ user, loading }) => {
     {
       path: '/secret',
       name: 'Secret'
+    },
+    {
+      path: '/secretSSR',
+      name: 'Secret SSR'
     }
   ]
 
