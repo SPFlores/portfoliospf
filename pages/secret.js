@@ -2,6 +2,7 @@ import React from 'react'
 import BaseLayout from '@/components/layouts/BaseLayout'
 import { useGetUser } from '@/actions/user'
 import { useRouter } from 'next/router'
+import Redirect from '@/components/shared/Redirect'
 
 const Secret = _ => {
   const router = useRouter()
@@ -18,8 +19,7 @@ const Secret = _ => {
   }
 
   if (!data) {
-    router.push('api/v1/login')
-    return null
+    return <Redirect to={'/api/v1/login'} />
   } else {
     return (
       <BaseLayout
