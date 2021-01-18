@@ -41,6 +41,14 @@ const Navigation = ({ user, loading }) => {
     {
       path: '/secretSSR',
       name: 'Secret SSR'
+    },
+    {
+      path: '/admin',
+      name: 'Admin'
+    },
+    {
+      path: '/adminSSR',
+      name: 'Admin SSR'
     }
   ]
 
