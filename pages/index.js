@@ -19,7 +19,8 @@ const Main = _ => {
     <BaseLayout
       className='cover'
       user={data}
-      loading={loading}>
+      loading={loading}
+      navClass='home'>
       <div className='main-section'>
         <div className='background-image'>
           <img src='/images/background-index.png' />

@@ -1,17 +1,28 @@
-@import './shared/fonts';
+@import "./shared/fonts";
 
-@import './index';
-@import './components/navbar';
+@import "./index";
+@import "./components/navbar";
+@import "./portfolio";
 
-html, body {
-  font-family: 'Montserrat', 'Helvetica';
+html,
+body {
+  font-family: "Montserrat", "Helvetica";
   height: 100%;
   width: 100%;
 }
 
 .base-page {
-  padding-top: 125px;
-  color: white;
+  padding-top: 100px;
+  color: black;
+  background-color: #ecedee;
+  min-height: 100vh;
+
+  .page-header-title {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-family: "Montserrat", "Helvetica";
+  }
 }
 
 .self-typed {

@@ -8,7 +8,7 @@ import {
 } from 'reactstrap'
 import Link from 'next/link'
 
-const Navigation = ({ user, loading }) => {
+const Navigation = ({ user, loading, className }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
@@ -33,22 +33,6 @@ const Navigation = ({ user, loading }) => {
     {
       path: '/cv',
       name: 'CV'
-    },
-    {
-      path: '/secret',
-      name: 'Secret'
-    },
-    {
-      path: '/secretSSR',
-      name: 'Secret SSR'
-    },
-    {
-      path: '/admin',
-      name: 'Admin'
-    },
-    {
-      path: '/adminSSR',
-      name: 'Admin SSR'
     }
   ]
 
@@ -58,7 +42,7 @@ const Navigation = ({ user, loading }) => {
 
   return (
     <div>
-      <Navbar className='port-navbar port-default absolute' color='transparent' dark expand='md'>
+      <Navbar className={`port-navbar port-default absolute ${className}`} dark expand='md'>
         <Link href='/'>
           <a className='nav-link port-navbar-link navbar-brand port-navbar-brand'>Samantha Flores</a>
         </Link>
